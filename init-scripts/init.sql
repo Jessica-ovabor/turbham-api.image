@@ -10,4 +10,3 @@ CREATE DATABASE your_database_name;
 
 -- Call your Python script to create tables
 \! python /turbomed/cli.py init-db
-
