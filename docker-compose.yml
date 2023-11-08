@@ -1,13 +1,9 @@
 version: "3.9"
 services:
   my_flask_service:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    expose:
-      - ${PORT:-5000}
+    image: veektaw/turbomed-image:latest  # Replace 'latest' with the desired tag
     ports:
-      - "${BIND_IP:-0.0.0.0}:${HOST_PORT:-5000}:${PORT:-5000}"
+      - "5000:5000"
     depends_on:
       - my_redis_service
       - my_postgres_service
@@ -20,10 +16,10 @@ services:
       REDIS_HOST: my_redis_container
       REDIS_PORT: 6379
       REDIS_DB: 0
-      ROOT_URL: ${ROOT_URL:-http://localhost:${HOST_PORT:-5000}}
-      PORT: ${PORT:-5000}
+      ROOT_URL: http://localhost:5000  # You can modify this as needed
+      PORT: 5000
       DEPLOY_METHOD: docker
-      DEPLOY_PLATFORM: ${DEPLOY_PLATFORM:-}
+      DEPLOY_PLATFORM: ""  # Update if needed
     restart: always
 
   my_redis_service:
@@ -53,4 +49,4 @@ services:
 
 volumes:
   postgres_data:  # volume for PostgreSQL data
-  redis_data:
+  redis_data:  # volume for Redis data
