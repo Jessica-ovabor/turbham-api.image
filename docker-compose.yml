@@ -1,7 +1,7 @@
 version: "3.9"
 services:
-  my_flask_service:
-    image: veektaw/turbomed-image:latest  # Replace 'latest' with the desired tag
+  _service:
+    image: temilola/turbomedics-api:latest  # Replace 'latest' with the desired tag
     ports:
       - "5000:5000"
     depends_on:
