@@ -17,7 +17,4 @@ ls
 
 cd ..
 
-docker-compose up -d
-
-docker ps
 
